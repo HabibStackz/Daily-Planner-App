@@ -19,9 +19,9 @@ function generateTimeBlocks(){
         timeBlock.attr("data-hour", i);
 
         // create elements for time event and save btn
-        let timeEl = $("<div>").addClass("col-1 time").text(hours);
-        let eventInput = $("<textarea>").attr("id", "event-" + i).addClass("col-10");
-        let saveBtn = $("<button>").addClass("col-1 save-btn").text("save").attr("data-hour", i);
+        let timeEl = $("<div>").addClass("col-1 fs-4 d-flex align-items-center time").text(hours);
+        let eventInput = $("<textarea>").attr("id", "event-" + i).addClass("eventInput col-10 fs-4 ");
+        let saveBtn = $("<button>").addClass("col-1 saveBtn").text("save").attr("data-hour", i);
 
         // Append elements created to timeBlock
         timeBlock.append(timeEl);
@@ -30,6 +30,20 @@ function generateTimeBlocks(){
 
         // Append timeBlock to timeBlocksContainer
         timeBlocksContainer.append(timeBlock);
+
+        // color coding
+        const currentHour = dayjs().hour();
+
+        // Extract the data-hour attr and convert to number for if else statement to work properly
+        const blockHour = parseInt(timeBlock.attr("data-hour"));
+
+        if (blockHour > currentHour){
+            timeBlock.addClass("future")
+        } else if (blockHour === currentHour){
+            timeBlock.addClass("present")
+        } else {
+            timeBlock.addClass("past")
+        }
     }
 }
 
