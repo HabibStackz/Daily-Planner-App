@@ -44,6 +44,21 @@ function generateTimeBlocks(){
         } else {
             timeBlock.addClass("past")
         }
+
+        // Event handler for save button
+        saveBtn.on("click", function(){
+            let hour = $(this).data("hour");
+            let eventText = $("#event-" + hour).val();
+            localStorage.setItem("event-" + hour, eventText);
+        });
+    }
+
+        // Retrieve the saved event from local storage
+        for (let i=9; i <=17; i++) {
+        let savedEvent = localStorage.getItem("event-" + i);
+        if (savedEvent) {
+            $("#event-" + i).val(savedEvent);
+        }
     }
 }
 
