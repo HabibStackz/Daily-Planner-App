@@ -6,7 +6,7 @@ Work Day Scheduler is a simple calendar app designed to help users manage their 
 
 ## Link
 
-[https://habibstackz.github.io/code-quiz/](https://habibstackz.github.io/Daily-Planner-App/)
+https://habibstackz.github.io/Daily-Planner-App/
 
 ## Getting Started
 
