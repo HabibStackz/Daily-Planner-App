@@ -11,7 +11,7 @@ function generateTimeBlocks(){
     // for loop for 9 hours starting from 9AM
     for(let i=9; i<=17; i++){
         let hours = dayjs().hour(i).format("hA");  
-        console.log(hours);
+        
 
         // Create timeblock element and add class ".time-block"
         let timeBlock = $("<div>").addClass("row time-block");
@@ -19,9 +19,9 @@ function generateTimeBlocks(){
         timeBlock.attr("data-hour", i);
 
         // create elements for time event and save btn
-        let timeEl = $("<div>").addClass("col-1 fs-4 d-flex align-items-center time").text(hours);
+        let timeEl = $("<div>").addClass("col-1 fs-5 fw-medium d-flex align-items-center time").text(hours);
         let eventInput = $("<textarea>").attr("id", "event-" + i).addClass("eventInput col-10 fs-4 ");
-        let saveBtn = $("<button>").addClass("col-1 saveBtn").text("save").attr("data-hour", i);
+        let saveBtn = $("<button>").addClass("col-1 saveBtn fas fa-save").attr("data-hour", i);
 
         // Append elements created to timeBlock
         timeBlock.append(timeEl);
